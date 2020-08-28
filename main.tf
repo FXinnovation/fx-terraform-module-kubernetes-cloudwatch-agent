@@ -122,7 +122,7 @@ resource "kubernetes_cluster_role" "this" {
   rule {
     api_groups     = [""]
     resources      = ["configmaps"]
-    resource_names = [element(concat(kubernetes_config_map.this.*.metadata.0.name, list("")), 0)]
+    resource_names = ["cwagent-clusterleader"]
     verbs          = ["get", "update"]
   }
 }
